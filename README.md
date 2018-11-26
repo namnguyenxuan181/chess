@@ -3,7 +3,6 @@ ChessJS
 
 # Features
 - Play chess with your friend
-- Support rooms: enter any room name (or append `#roomname` to URL) to create new room for you and your friend.
 
 # Run
 
@@ -13,4 +12,3 @@ ChessJS
 ```
 
 Application run at `http://localhost:3000`
-# chess
