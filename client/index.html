@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Chess!</title>
+        <link rel="stylesheet" href="rs/css/style.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="rs/js/lib/jquery-1.10.2.min.js"></script>
+        <script src="rs/js/Data.js"></script>
+        <script src="rs/js/socket.js"></script>
+        <script src="rs/js/Chess.Board.js"></script>
+        <script src="rs/js/Piece.Pawn.js"></script>
+        <script src="rs/js/Piece.Rook.js"></script>
+        <script src="rs/js/Piece.Knight.js"></script>
+        <script src="rs/js/Piece.Bishop.js"></script>
+        <script src="rs/js/Piece.Queen.js"></script>
+        <script src="rs/js/Piece.King.js"></script>
+        <script>
+            $(function() {
+                //Chess.Board.CurrentState = DEFAULT_BOARD;
+                Chess.Board.Render();
+
+                $('#currentRoom').html(location.hash || "home");
+                $('#invite-link').html(location.href);
+            });
+
+
+        </script>
+
+    </head>
+    <body>
+        <div id="waiting">
+            <h1>Waiting for your competitor...</h1>
+            <p>Invite friend to play: <b id="invite-link"></b></p>
+        </div>
+        <div id="protect">
+        </div>
+        <div id="chess_board">
+
+        </div>
+        <div id="controls">
+            <input type="button" onclick="ResetGame()" value="Reset Game"/>
+        </div>
+        <div id="rooms">
+            <p>You are in: <b id="currentRoom"></b> room</p>
+            <h3>Room list:</h3>
+            <div id="list_room">
+                
+            </div>
+            <br/>
+            <h3>Go to other room:</h3>
+            <div>
+                Room name: <input type="text" id="roomname"/> <input type="button" onclick="gotoroom()" value="Go"/>
+                <script>
+                    function gotoroom() {
+                        location.hash = $('#roomname').val();
+                        location.reload();
+                    }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
