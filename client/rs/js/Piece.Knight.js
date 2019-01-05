@@ -15,7 +15,7 @@ Piece.Knight = function Piece_Knight(isWhite) {
     if (isWhite) {
         this.code = 4;
     } else {
-        this.code = 100 - 4;
+        this.code = 96;
     }
 };
 

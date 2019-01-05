@@ -53,7 +53,7 @@ Piece.Pawn = function Piece_Pawn(isWhite) {
     if (isWhite) {
         this.code = 5;
     } else {
-        this.code = 100 - 5;
+        this.code = 95;
     }
 };
 

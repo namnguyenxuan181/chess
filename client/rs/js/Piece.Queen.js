@@ -14,7 +14,7 @@ Piece.Queen = function Piece_Queen(isWhite) {
     if (isWhite) {
         this.code = 1;
     } else {
-        this.code = 100 - 1;
+        this.code = 99;
     }
 };
 

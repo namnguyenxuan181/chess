@@ -1,20 +1,30 @@
 <html>
-    <head>
-        <title>Chess!</title>
-        <link rel="stylesheet" href="rs/css/style.css">
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="rs/js/lib/jquery-1.10.2.min.js"></script>
-        <script src="rs/js/Data.js"></script>
-        <script src="rs/js/socket.js"></script>
-        <script src="rs/js/Chess.Board.js"></script>
-        <script src="rs/js/Piece.Pawn.js"></script>
-        <script src="rs/js/Piece.Rook.js"></script>
-        <script src="rs/js/Piece.Knight.js"></script>
-        <script src="rs/js/Piece.Bishop.js"></script>
-        <script src="rs/js/Piece.Queen.js"></script>
-        <script src="rs/js/Piece.King.js"></script>
-        <script>
-            $(function() {
+
+<head>
+    <title>Chess!</title>
+    <!-- <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+  <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
+  <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
+    <link rel="stylesheet" href="rs/css/style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="rs/js/lib/jquery-1.10.2.min.js"></script>
+    <script src="rs/js/Data.js"></script>
+    <script src="rs/js/socket.js"></script>
+    <script src="rs/js/Chess.Board.js"></script>
+    <script src="rs/js/Piece.Pawn.js"></script>
+    <script src="rs/js/Piece.Rook.js"></script>
+    <script src="rs/js/Piece.Knight.js"></script>
+    <script src="rs/js/Piece.Bishop.js"></script>
+    <script src="rs/js/Piece.Queen.js"></script>
+    <script src="rs/js/Piece.King.js"></script>
+    <script>
+        $(function() {
                 //Chess.Board.CurrentState = DEFAULT_BOARD;
                 Chess.Board.Render();
 
@@ -25,37 +35,68 @@
 
         </script>
 
-    </head>
-    <body>
-        <div id="waiting">
-            <h1>Waiting for your competitor...</h1>
-            <p>Invite friend to play: <b id="invite-link"></b></p>
-        </div>
-        <div id="protect">
-        </div>
-        <div id="chess_board">
+</head>
+
+<body>
+    <div id="waiting">
+        <h1>Waiting for your competitor...</h1>
+        <p>Invite friend to play: <b id="invite-link"></b></p>
+    </div>
+    <div id="protect">
+    </div>
+    <div id="chess_board">
+
+    </div>
+    <div id="rooms">
+        <p>You are in: <b id="currentRoom"></b> room</p>
+        <h3>Room list:</h3>
+        <div id="list_room">
 
         </div>
-        <div id="controls">
-            <input type="button" onclick="ResetGame()" value="Reset Game"/>
-        </div>
-        <div id="rooms">
-            <p>You are in: <b id="currentRoom"></b> room</p>
-            <h3>Room list:</h3>
-            <div id="list_room">
-                
-            </div>
-            <br/>
-            <h3>Go to other room:</h3>
-            <div>
-                Room name: <input type="text" id="roomname"/> <input type="button" onclick="gotoroom()" value="Go"/>
-                <script>
-                    function gotoroom() {
+        <br />
+        <h3>Go to other room:</h3>
+        <div>
+            Room name: <input type="text" id="roomname" /> <input type="button" class="btn btn-primary" onclick="gotoroom()" value="Go" />
+            <script>
+                function gotoroom() {
                         location.hash = $('#roomname').val();
                         location.reload();
                     }
                 </script>
-            </div>
         </div>
-    </body>
+        <div>
+            <br>
+            <br>
+        </div>
+        <div>
+            <input type="button" onclick="setup1()" value="Start"/>
+            <script>
+                function setup1(){
+                    var interval=setInterval(timeIt, 1000)
+                }
+            </script>
+            <br>
+            <br>
+        </div>
+        <div id="controls">
+            <input type="button" class="btn btn-success" onclick="ResetGame()" value="Reset Game" />
+        </div>
+        <div>
+            <p>Time for a match:</p>
+            <input id="time_per_match" type="text" value="10" /> 
+        </div>
+        <div>
+            <input type="button" class="btn btn-success"  value="Setup" />
+        </div>
+        <div>
+            <p>time remaning of white player:</p>
+            <p id ="white_play_timer">______</p>
+        </div>
+        <div>
+            <p>time remaning of black player:</p>
+            <p id ="black_play_timer">______</p>
+        </div>
+    </div>
+</body>
+
 </html>

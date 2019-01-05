@@ -15,7 +15,7 @@ Piece.Rook = function Piece_Rook(isWhite) {
     if (isWhite) {
         this.code = 2;
     } else {
-        this.code = 100 - 2;
+        this.code = 98;
     }
 };
 

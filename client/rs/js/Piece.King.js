@@ -14,7 +14,7 @@ Piece.King = function Piece_King(isWhite) {
     if (isWhite) {
         this.code = 0;
     } else {
-        this.code = 100 - 0;
+        this.code = 100 ;
     }
 };
 

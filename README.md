@@ -2,7 +2,7 @@ ChessJS
 =======
 
 # Features
-- Play chess with your friend
+chơi game cờ vua cùng bạn
 
 # Run
 

@@ -15,7 +15,7 @@ Piece.Bishop = function Piece_Bishop(isWhite) {
     if (isWhite) {
         this.code = 3;
     } else {
-        this.code = 100 - 3;
+        this.code = 97;
     }
 };
 
